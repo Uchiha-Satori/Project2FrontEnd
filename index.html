@@ -12,6 +12,50 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
+      <div class="blog-header">
+  <div class="container">
+    <h1 class="blog-title">The Blog</h1>
+    <p class="lead blog-description">short quote or descripton of blog</p>
+  </div>
+</div>
+
+<div>
+    <form id="sign-up">
+      <fieldset>
+        <legend>Sign Up Below</legend>
+        <input type="text" name="credentials[email]" placeholder="Email">
+        <input type="password" name="credentials[password]" placeholder="Create Password">
+        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+        <input type="submit" name="submit" value="Sign Up!">
+      </fieldset>
+    </form>
+  </div>
+
+ <div>
+    <form id="sign-in">
+      <fieldset>
+        <legend>Login Below</legend>
+        <input type="text" name="credentials[email]" placeholder="Email">
+        <input type="password" name="credentials[password]" placeholder="Password">
+        <input type="submit" name="submit" value="Sign In!">
+      </fieldset>
+    </form>
+  </div>
+
+ <div>
+    <form id="change-password">
+      <fieldset>
+        <legend>Login Below</legend>
+        <input type="password" name="passwords[old]" placeholder="Old Password">
+        <input type="password" name="passwords[new]" placeholder="New Password">
+        <input type="submit" name="submit" value="Submit Changes">
+      </fieldset>
+    </form>
+  </div>
+<br>
+  <div class="row"><button id="log-out" class="btn-success btn span3" >Log Out</button></div>
+<br>
+<div class="container">
       <h1>Example</h1>
 
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -22,4 +66,5 @@
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.</p>
     </body>
+</div>
 </html>
