@@ -17,19 +17,19 @@ const message = function (msg) {
 // }
 
 const signUpSuccess = (data) => {
-  message('Sign Up Success')
   console.log(data)
 }
 
 const signUpFailure = (error) => {
-  message('Sign Up Failure Username taken or incorrect matching password')
   console.log(error)
 }
 
 const signInSuccess = (data) => {
   console.log(data)
-  message('Sign In Success, Click NEW GAME')
   app.user = data.user
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+
   // api.somethingHere()
   //   .then($('').show()) // gameSuccess used to be in here.
   //   .catch(function () {
@@ -46,6 +46,7 @@ const signInFailure = (error) => {
 
 const changePasswordSuccess = (data) => {
   message('Password Changed')
+  // $('.change-password').hide() //not working yet
   console.log(data)
 }
 
@@ -57,7 +58,7 @@ const changePasswordFailure = (error) => {
 const logoutSuccess = () => {
   app.user = null
   message('Log Out Success')
-  console.log('it log off') // not working yet
+  console.log('it log off')
 }
 
 const logoutFailure = (error) => {

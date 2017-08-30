@@ -1,2 +1,20 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+body{
+  background-color: #0b26ae;
+  color: #ae930b;
+}
+
+legend {
+  color: #ae930b;
+}
+
+.HeaderPicture {
+  background-image: url('http://i.imgur.com/qjQfT5v.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 150px;
+  width: 600px;
+}
