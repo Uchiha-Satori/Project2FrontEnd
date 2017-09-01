@@ -34,9 +34,19 @@ const onLogOut = function (event) {
     .catch(ui.logoutFailure)
 }
 
+const onSubmitBlog = function (event) {
+  event.preventDefault()
+  const title = $('#00').val()
+  const content = $('#11').val()
+  api.adminBlog(title, content) // update api
+    .then(ui.blogSuccess) // update ui with
+    .catch(ui.blogFailure)
+}
+
 module.exports = {
   onSignIn,
   onSignUp,
   onChangePassword,
-  onLogOut
+  onLogOut,
+  onSubmitBlog
 }

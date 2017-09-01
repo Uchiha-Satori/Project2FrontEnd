@@ -51,9 +51,38 @@ const userLogout = () => {
   })
 }
 
+const adminBlog = (title, content) => {
+  return $.ajax({
+    url: app.host + 'blogs/',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    method: 'POST',
+    data: {
+      'blog': {
+        'title': title,
+        'content': content,
+        'user_id': app.user.id
+      }
+    }
+  })
+}
+
+const blogHistory = () => {
+  return $.ajax({
+    url: app.host + 'blogs/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+// make button, and everything else just like admin blog.
 module.exports = {
   signIn,
   signUp,
   changePassword,
-  userLogout
+  userLogout,
+  adminBlog,
+  blogHistory
 }

@@ -46,7 +46,7 @@ const signInFailure = (error) => {
 
 const changePasswordSuccess = (data) => {
   message('Password Changed')
-  // $('.change-password').hide() //not working yet
+  // $('#change-password').hide() //not working yet
   console.log(data)
 }
 
@@ -66,6 +66,14 @@ const logoutFailure = (error) => {
   console.log(error)
 }
 
+const blogSuccess = function (data) {
+  console.log(data)
+}
+
+const blogFailure = function (data) {
+  console.log(data)
+}
+
 module.exports = {
   signUpFailure,
   signUpSuccess,
@@ -74,6 +82,8 @@ module.exports = {
   changePasswordFailure,
   changePasswordSuccess,
   logoutSuccess,
-  logoutFailure
+  logoutFailure,
+  blogSuccess,
+  blogFailure
   // adminSuccess
 }
