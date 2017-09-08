@@ -74,6 +74,21 @@ const blogFailure = function (data) {
   console.log(data)
 }
 
+const getBlogSuccess = function (data) {
+  $('#message').html('Blogs posted:' + data.blogs.length)
+  console.log(data)
+}
+
+const getBlogFail = (error) => {
+  console.error(error)
+}
+
+const loopBlogs = function (data) {
+  console.log(data.blogs.length)
+  for (let i = 0; i < data.blogs.length; i++) {
+    $('#show-blogs')
+  }
+}
 module.exports = {
   signUpFailure,
   signUpSuccess,
@@ -84,6 +99,9 @@ module.exports = {
   logoutSuccess,
   logoutFailure,
   blogSuccess,
-  blogFailure
+  blogFailure,
+  getBlogSuccess,
+  getBlogFail,
+  loopBlogs
   // adminSuccess
 }

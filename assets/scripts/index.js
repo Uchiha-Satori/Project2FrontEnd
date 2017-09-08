@@ -22,4 +22,5 @@ $(() => {
   $('#change-password').on('submit', blogEvents.onChangePassword)
   $('#log-out').on('click', blogEvents.onLogOut)
   $('#submit-blog').on('click', blogEvents.onSubmitBlog)
+  $('#blog-history').click(blogEvents.onBlogHistory)
 })

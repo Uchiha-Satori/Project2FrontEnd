@@ -43,10 +43,18 @@ const onSubmitBlog = function (event) {
     .catch(ui.blogFailure)
 }
 
+const onBlogHistory = function (event) {
+  event.preventDefault()
+  api.blogHistory()
+    .then(ui.getBlogSuccess)
+    .catch(ui.getBlogFail)
+}
+
 module.exports = {
   onSignIn,
   onSignUp,
   onChangePassword,
   onLogOut,
-  onSubmitBlog
+  onSubmitBlog,
+  onBlogHistory
 }
