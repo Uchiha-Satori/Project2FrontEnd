@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://asiannerdist.herokuapp.com/'
+    production: 'http://localhost:4741/'
   }
 }
 

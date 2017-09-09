@@ -46,8 +46,22 @@ const onSubmitBlog = function (event) {
 const onBlogHistory = function (event) {
   event.preventDefault()
   api.blogHistory()
-    .then(ui.getBlogSuccess)
+    .then(ui.loopBlogsSuccess)
     .catch(ui.getBlogFail)
+}
+
+const onBlogEdit = function (event) {
+  event.preventDefault()
+  api.updateBlog()
+    .then(ui.editBlogSuccess)
+    .catch(ui.editBlogFail)
+}
+
+const onBlogDelete = function (event) {
+  event.preventDefault()
+  api.deleteBlog()
+    .then(ui.deleteBlogSuccess)
+    .catch(ui.deleteBlogFail)
 }
 
 module.exports = {
@@ -56,5 +70,7 @@ module.exports = {
   onChangePassword,
   onLogOut,
   onSubmitBlog,
-  onBlogHistory
+  onBlogHistory,
+  onBlogEdit,
+  onBlogDelete
 }

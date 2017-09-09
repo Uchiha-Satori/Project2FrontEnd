@@ -79,16 +79,51 @@ const getBlogSuccess = function (data) {
   console.log(data)
 }
 
-const getBlogFail = (error) => {
+const loopBlogFail = (error) => {
   console.error(error)
 }
 
-const loopBlogs = function (data) {
-  console.log(data.blogs.length)
-  for (let i = 0; i < data.blogs.length; i++) {
-    $('#show-blogs')
-  }
+const loopBlogsSuccess = function (data) {
+  console.log(data)
+  const blogs = data.blogs
+  blogs.forEach((blog) => {
+    $('#show-blogs').append(
+      '<div>' +
+      `<h1> ${blog.title} </h1>` +
+      `<p> ${blog.content} </p>` +
+      '</div>'
+    )
+  })
+
+  // for (let i = 0; i < data.blogs.length; i++) {
+  //   $('#show-blogs').append(
+  //     '<div>' +
+  //     '<h2>' + data.blogs[i].blog[title] + '</h2>' +
+  //     '<p>' + data.blogs[i].blog[content] + '</p>' +
+  //     '<p hidden>' + data.blogs[i].id + '</p>' +
+  //     '<button class="delete-blog" id="' + data.blogs[i].id + '" type="button"
+  //     class="btn">Delete Blog</button>'+
+  //     '</div>'
+  //   )
+  // }
 }
+
+const editBlogSuccess = function (data) {
+  console.log(data)
+}
+
+const editBlogFail = (error) => {
+  console.error(error)
+}
+
+const deleteBlogSuccess = function (data) {
+  console.log(data)
+}
+
+const deleteBlogFail = (error) => {
+  console.error(error)
+}
+
 module.exports = {
   signUpFailure,
   signUpSuccess,
@@ -100,8 +135,11 @@ module.exports = {
   logoutFailure,
   blogSuccess,
   blogFailure,
-  getBlogSuccess,
-  getBlogFail,
-  loopBlogs
+  loopBlogsSuccess,
+  loopBlogFail,
+  editBlogSuccess,
+  editBlogFail,
+  deleteBlogSuccess,
+  deleteBlogFail
   // adminSuccess
 }

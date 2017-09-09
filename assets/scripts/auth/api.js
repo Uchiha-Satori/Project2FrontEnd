@@ -77,6 +77,34 @@ const blogHistory = () => {
     }
   })
 }
+
+const updateBlog = (title, content) => {
+  return $.ajax({
+    url: app.host + 'blogs/' + app.user.id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    method: 'PATCH',
+    data: {
+      'blog': {
+        'title': title,
+        'content': content,
+        'user_id': app.user.id
+      }
+    }
+  })
+}
+
+const deleteBlog = () => {
+  return $.ajax({
+    url: app.host + 'blogs/' + app.user.id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    method: 'DELETE'
+  })
+}
+
 // make button, and everything else just like admin blog.
 module.exports = {
   signIn,
@@ -84,5 +112,7 @@ module.exports = {
   changePassword,
   userLogout,
   adminBlog,
-  blogHistory
+  blogHistory,
+  updateBlog,
+  deleteBlog
 }
