@@ -66,21 +66,12 @@ const logoutFailure = (error) => {
   console.log(error)
 }
 
-const blogSuccess = function (data) {
-  console.log(data)
-}
-
-const blogFailure = function (data) {
-  console.log(data)
-}
-
-const getBlogSuccess = function (data) {
-  $('#message').html('Blogs posted:' + data.blogs.length)
-  console.log(data)
-}
-
-const loopBlogFail = (error) => {
+const loopBlogsFail = (error) => {
   console.error(error)
+}
+
+const createSuccess = () => {
+  console.log('we did it')
 }
 
 const loopBlogsSuccess = function (data) {
@@ -91,7 +82,15 @@ const loopBlogsSuccess = function (data) {
       '<div>' +
       `<h1> ${blog.title} </h1>` +
       `<p> ${blog.content} </p>` +
+      `<input type="submit" name="delete" id="delete-${blog.id}" value="delete blog">` +
+      `<input type="submit" name="edit" id="edit-${blog.id}" value="edit blog">` +
       '</div>'
+      // +
+      // `<input type="text" name="blog[title]" placeholder="title" value="${blog.content}" id="00">` +
+      // '<br>' +
+      // '<textarea name="blog[content]" rows="15" cols="80" id="11" placeholder="type new blog post here.">' +
+      // '</textarea>' //if all else fails use this editable code!!!
+
     )
   })
 
@@ -133,13 +132,12 @@ module.exports = {
   changePasswordSuccess,
   logoutSuccess,
   logoutFailure,
-  blogSuccess,
-  blogFailure,
   loopBlogsSuccess,
-  loopBlogFail,
+  loopBlogsFail,
   editBlogSuccess,
   editBlogFail,
   deleteBlogSuccess,
-  deleteBlogFail
+  deleteBlogFail,
+  createSuccess
   // adminSuccess
 }

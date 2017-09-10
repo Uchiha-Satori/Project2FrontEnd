@@ -39,15 +39,15 @@ const onSubmitBlog = function (event) {
   const title = $('#00').val()
   const content = $('#11').val()
   api.adminBlog(title, content) // update api
-    .then(ui.blogSuccess) // update ui with
-    .catch(ui.blogFailure)
+    .then(ui.createSuccess) // update ui with
+    .catch(ui.loopBlogsFailure)
 }
 
 const onBlogHistory = function (event) {
   event.preventDefault()
   api.blogHistory()
     .then(ui.loopBlogsSuccess)
-    .catch(ui.getBlogFail)
+    .catch(ui.loopBlogsFail)
 }
 
 const onBlogEdit = function (event) {

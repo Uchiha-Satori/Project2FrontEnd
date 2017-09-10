@@ -95,9 +95,9 @@ const updateBlog = (title, content) => {
   })
 }
 
-const deleteBlog = () => {
+const deleteBlog = (id) => {
   return $.ajax({
-    url: app.host + 'blogs/' + app.user.id,
+    url: app.host + 'blogs/' + id,
     headers: {
       Authorization: 'Token token=' + app.user.token
     },
