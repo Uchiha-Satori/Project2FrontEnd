@@ -58,8 +58,9 @@ const onBlogEdit = function (event) {
 }
 
 const onBlogDelete = function (event) {
+  console.log(event.target.dataset.id)
   event.preventDefault()
-  api.deleteBlog()
+  api.deleteBlog(event.target.dataset.id)
     .then(ui.deleteBlogSuccess)
     .catch(ui.deleteBlogFail)
 }

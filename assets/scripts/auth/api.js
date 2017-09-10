@@ -96,6 +96,7 @@ const updateBlog = (title, content) => {
 }
 
 const deleteBlog = (id) => {
+  console.log(id)
   return $.ajax({
     url: app.host + 'blogs/' + id,
     headers: {

@@ -24,3 +24,5 @@ $(() => {
   $('#submit-blog').on('click', blogEvents.onSubmitBlog)
   $('#blog-history').click(blogEvents.onBlogHistory)
 })
+
+$(document).on('click', '.btnDeleteBlog', blogEvents.onBlogDelete)

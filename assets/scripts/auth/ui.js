@@ -77,12 +77,13 @@ const createSuccess = () => {
 const loopBlogsSuccess = function (data) {
   console.log(data)
   const blogs = data.blogs
+  $('#show-blogs').empty()
   blogs.forEach((blog) => {
     $('#show-blogs').append(
       '<div>' +
       `<h1> ${blog.title} </h1>` +
       `<p> ${blog.content} </p>` +
-      `<input type="submit" name="delete" id="delete-${blog.id}" value="delete blog">` +
+      `<input type="submit" class="btnDeleteBlog" name="delete" data-id="${blog.id}" value="delete blog">` +
       `<input type="submit" name="edit" id="edit-${blog.id}" value="edit blog">` +
       '</div>'
       // +
