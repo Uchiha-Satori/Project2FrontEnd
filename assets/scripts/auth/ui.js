@@ -1,26 +1,15 @@
 'use strict'
 const app = require('./app.js')
-const api = require('./api.js')
-// maybe use to show message????
 const message = function (msg) {
-  $('#message').text(msg)
+  $('#error-message').text(msg)
 }
-
-// // make this into a way to display ability to post blogs for admin
-// const adminSuccess = (data) => {
-//   $('').show()
-//   app.user = data.user
-//   // api.somethingHere()
-//     .then
-//     .catch
-//   console.log('something went wrong')
-// }
 
 const signUpSuccess = (data) => {
   console.log(data)
 }
 
 const signUpFailure = (error) => {
+  message('Sign Up Failure Username taken or incorrect matching password')
   console.log(error)
 }
 
@@ -29,12 +18,6 @@ const signInSuccess = (data) => {
   app.user = data.user
   $('#sign-up').hide()
   $('#sign-in').hide()
-
-  // api.somethingHere()
-  //   .then($('').show()) // gameSuccess used to be in here.
-  //   .catch(function () {
-    // })
-  // console.log(app.user.id) this shows user#
 
   console.log('this is working')
 }
@@ -46,7 +29,6 @@ const signInFailure = (error) => {
 
 const changePasswordSuccess = (data) => {
   message('Password Changed')
-  // $('#change-password').hide() //not working yet
   console.log(data)
 }
 
@@ -66,29 +48,44 @@ const logoutFailure = (error) => {
   console.log(error)
 }
 
-const blogSuccess = function (data) {
-  console.log(data)
-}
-
-const blogFailure = function (data) {
-  console.log(data)
-}
-
-const getBlogSuccess = function (data) {
-  $('#message').html('Blogs posted:' + data.blogs.length)
-  console.log(data)
-}
-
-const getBlogFail = (error) => {
+const loopBlogsFail = (error) => {
   console.error(error)
 }
 
-const loopBlogs = function (data) {
-  console.log(data.blogs.length)
-  for (let i = 0; i < data.blogs.length; i++) {
-    $('#show-blogs')
-  }
+const loopBlogsSuccess = function (data) {
+  console.log(data)
+  const blogs = data.blogs
+  $('#show-blogs').empty()
+  blogs.forEach((blog) => {
+
+    $('#show-blogs').append(
+      '<div>' +
+      `<h1> ${blog.title} </h1>` +
+      `<p> ${blog.content} </p>` +
+      `<input type="submit" class="btnDeleteBlog" name="delete" data-id="${blog.id}" value="delete blog">` +
+      // outside edit blog button
+      `<button type="button" class="btnEditBlog" id="editBtn${blog.id}" data-toggle="modal" data-target="#exampleModal" data-id="${blog.id}">edit blog</button>` +
+      '</div>'
+    )
+  })
 }
+
+const editBlogSuccess = function (data) {
+  console.log(data)
+}
+
+const editBlogFail = (error) => {
+  console.error(error)
+}
+
+const deleteBlogSuccess = function (data) {
+  console.log(data)
+}
+
+const deleteBlogFail = (error) => {
+  console.error(error)
+}
+
 module.exports = {
   signUpFailure,
   signUpSuccess,
@@ -98,10 +95,10 @@ module.exports = {
   changePasswordSuccess,
   logoutSuccess,
   logoutFailure,
-  blogSuccess,
-  blogFailure,
-  getBlogSuccess,
-  getBlogFail,
-  loopBlogs
-  // adminSuccess
+  loopBlogsSuccess,
+  loopBlogsFail,
+  editBlogSuccess,
+  editBlogFail,
+  deleteBlogSuccess,
+  deleteBlogFail
 }

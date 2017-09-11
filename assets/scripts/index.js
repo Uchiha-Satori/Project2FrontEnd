@@ -24,3 +24,13 @@ $(() => {
   $('#submit-blog').on('click', blogEvents.onSubmitBlog)
   $('#blog-history').click(blogEvents.onBlogHistory)
 })
+
+$(document).on('click', '.btnDeleteBlog', blogEvents.onBlogDelete)
+// update button
+$(document).on('click', '#blogUpdateButton', blogEvents.onBlogEdit)
+// edit button
+$(document).on('show.bs.modal', (e) => {
+  let blogId = e.relatedTarget.dataset.id
+  console.log(blogId)
+  $('.btnUpdateBlog').attr('data-id', `${blogId}`)
+})

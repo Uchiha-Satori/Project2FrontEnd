@@ -39,15 +39,35 @@ const onSubmitBlog = function (event) {
   const title = $('#00').val()
   const content = $('#11').val()
   api.adminBlog(title, content) // update api
-    .then(ui.blogSuccess) // update ui with
-    .catch(ui.blogFailure)
+    .then(ui.createSuccess) // update ui with
+    .catch(ui.loopBlogsFailure)
 }
 
 const onBlogHistory = function (event) {
   event.preventDefault()
   api.blogHistory()
-    .then(ui.getBlogSuccess)
-    .catch(ui.getBlogFail)
+    .then(ui.loopBlogsSuccess)
+    .catch(ui.loopBlogsFail)
+}
+
+const onBlogEdit = function (event) {
+  console.log(event.target.dataset.id)
+  event.preventDefault()
+  const eventNum = event.target.dataset.id
+  const blogId = parseInt(eventNum)
+  const title = $('#blog-title').val()
+  const content = $('#content-text').val()
+  api.updateBlog(blogId, title, content)
+    .then(ui.editBlogSuccess)
+    .catch(ui.editBlogFail)
+}
+
+const onBlogDelete = function (event) {
+  console.log(event)
+  event.preventDefault()
+  api.deleteBlog(event.target.dataset.id)
+    .then(ui.deleteBlogSuccess)
+    .catch(ui.deleteBlogFail)
 }
 
 module.exports = {
@@ -56,5 +76,7 @@ module.exports = {
   onChangePassword,
   onLogOut,
   onSubmitBlog,
-  onBlogHistory
+  onBlogHistory,
+  onBlogEdit,
+  onBlogDelete
 }
