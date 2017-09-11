@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Asian Nerdist</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Asian Nerdist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <div class="HeaderPicture"></div>​
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <div class="blog-header">
-  <div class="container">
-    <h1 class="blog-title">Asian Nerdist</h1>
-    <p> Nerdom from gaming, pop culture, cosplay and everthing in between.</p>
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+  <div class="HeaderPicture"></div>​
+
+  <div class="blog-header">
+    <div class="container">
+      <h1 class="blog-title">Asian Nerdist</h1>
+      <p> Nerdom from gaming, pop culture, cosplay and everthing in between.</p>
+    </div>
   </div>
-</div>
 
-<div>
+  <div>
     <form id="sign-up">
       <fieldset>
         <legend>Sign Up Below</legend>
@@ -33,7 +35,7 @@
     </form>
   </div>
 
- <div>
+  <div>
     <form id="sign-in">
       <fieldset>
         <legend>Login Below</legend>
@@ -44,7 +46,7 @@
     </form>
   </div>
 
- <div>
+  <div>
     <form id="change-password">
       <fieldset>
         <legend>Change Password Below</legend>
@@ -54,20 +56,51 @@
       </fieldset>
     </form>
   </div>
-<br>
+  <br>
   <div class="row"><button id="log-out" class="btn-success btn span3">Log Out</button></div>
-<br>
-
-<input type="text" name="blog[title]" placeholder="title" id="00">
-<br>
-<textarea name="blog[content]" rows="15" cols="80" id="11" placeholder="type new blog post here.">
+  <br>
+  <div class="container" id="error-message">
+  </div>
+  <input type="text" name="blog[title]" placeholder="title" id="00">
+  <br>
+  <textarea name="blog[content]" rows="15" cols="80" id="11" placeholder="type new blog post here.">
 </textarea>
 
-<div class="row"><button id="submit-blog" class="btn-success btn span3">Submit Blog</button></div>
-<div class="row"><button id="blog-history" class="btn-success btn span3">Blog History</button></div>
+  <div class="row"><button id="submit-blog" class="btn-success btn span3">Submit Blog</button></div>
+  <div class="row"><button id="blog-history" class="btn-success btn span3">Blog History</button></div>
 
-<div class="container" id="show-blogs">
+  <div class="container" id="show-blogs">
 
-    </body>
-</div>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Blog</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="blog[title]" class="form-control-label">Blog Title:</label>
+              <input type="text" class="form-control" id="blog-title">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="form-control-label">Content:</label>
+              <textarea class="form-control" id="content-text"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" id="blogUpdateButton" class="btnUpdateBlog">Update Blog</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

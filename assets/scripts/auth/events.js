@@ -51,14 +51,19 @@ const onBlogHistory = function (event) {
 }
 
 const onBlogEdit = function (event) {
+  console.log(event.target.dataset.id)
   event.preventDefault()
-  api.updateBlog()
+  const eventNum = event.target.dataset.id
+  const blogId = parseInt(eventNum)
+  const title = $('#blog-title').val()
+  const content = $('#content-text').val()
+  api.updateBlog(blogId, title, content)
     .then(ui.editBlogSuccess)
     .catch(ui.editBlogFail)
 }
 
 const onBlogDelete = function (event) {
-  console.log(event.target.dataset.id)
+  console.log(event)
   event.preventDefault()
   api.deleteBlog(event.target.dataset.id)
     .then(ui.deleteBlogSuccess)

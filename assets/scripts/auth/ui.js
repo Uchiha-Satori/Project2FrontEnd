@@ -1,26 +1,15 @@
 'use strict'
 const app = require('./app.js')
-const api = require('./api.js')
-// maybe use to show message????
 const message = function (msg) {
-  $('#message').text(msg)
+  $('#error-message').text(msg)
 }
-
-// // make this into a way to display ability to post blogs for admin
-// const adminSuccess = (data) => {
-//   $('').show()
-//   app.user = data.user
-//   // api.somethingHere()
-//     .then
-//     .catch
-//   console.log('something went wrong')
-// }
 
 const signUpSuccess = (data) => {
   console.log(data)
 }
 
 const signUpFailure = (error) => {
+  message('Sign Up Failure Username taken or incorrect matching password')
   console.log(error)
 }
 
@@ -29,12 +18,6 @@ const signInSuccess = (data) => {
   app.user = data.user
   $('#sign-up').hide()
   $('#sign-in').hide()
-
-  // api.somethingHere()
-  //   .then($('').show()) // gameSuccess used to be in here.
-  //   .catch(function () {
-    // })
-  // console.log(app.user.id) this shows user#
 
   console.log('this is working')
 }
@@ -46,7 +29,6 @@ const signInFailure = (error) => {
 
 const changePasswordSuccess = (data) => {
   message('Password Changed')
-  // $('#change-password').hide() //not working yet
   console.log(data)
 }
 
@@ -70,42 +52,22 @@ const loopBlogsFail = (error) => {
   console.error(error)
 }
 
-const createSuccess = () => {
-  console.log('we did it')
-}
-
 const loopBlogsSuccess = function (data) {
   console.log(data)
   const blogs = data.blogs
   $('#show-blogs').empty()
   blogs.forEach((blog) => {
+
     $('#show-blogs').append(
       '<div>' +
       `<h1> ${blog.title} </h1>` +
       `<p> ${blog.content} </p>` +
       `<input type="submit" class="btnDeleteBlog" name="delete" data-id="${blog.id}" value="delete blog">` +
-      `<input type="submit" name="edit" id="edit-${blog.id}" value="edit blog">` +
+      // outside edit blog button
+      `<button type="button" class="btnEditBlog" id="editBtn${blog.id}" data-toggle="modal" data-target="#exampleModal" data-id="${blog.id}">edit blog</button>` +
       '</div>'
-      // +
-      // `<input type="text" name="blog[title]" placeholder="title" value="${blog.content}" id="00">` +
-      // '<br>' +
-      // '<textarea name="blog[content]" rows="15" cols="80" id="11" placeholder="type new blog post here.">' +
-      // '</textarea>' //if all else fails use this editable code!!!
-
     )
   })
-
-  // for (let i = 0; i < data.blogs.length; i++) {
-  //   $('#show-blogs').append(
-  //     '<div>' +
-  //     '<h2>' + data.blogs[i].blog[title] + '</h2>' +
-  //     '<p>' + data.blogs[i].blog[content] + '</p>' +
-  //     '<p hidden>' + data.blogs[i].id + '</p>' +
-  //     '<button class="delete-blog" id="' + data.blogs[i].id + '" type="button"
-  //     class="btn">Delete Blog</button>'+
-  //     '</div>'
-  //   )
-  // }
 }
 
 const editBlogSuccess = function (data) {
@@ -138,7 +100,5 @@ module.exports = {
   editBlogSuccess,
   editBlogFail,
   deleteBlogSuccess,
-  deleteBlogFail,
-  createSuccess
-  // adminSuccess
+  deleteBlogFail
 }

@@ -1,7 +1,5 @@
 'use strict'
 const app = require('./app.js')
-// // may not need, wait to delete
-// const config = require('../config.js')
 
 const signUp = (data) => {
   return $.ajax({
@@ -78,9 +76,9 @@ const blogHistory = () => {
   })
 }
 
-const updateBlog = (title, content) => {
+const updateBlog = (id, title, content) => {
   return $.ajax({
-    url: app.host + 'blogs/' + app.user.id,
+    url: app.host + 'blogs/' + id,
     headers: {
       Authorization: 'Token token=' + app.user.token
     },
