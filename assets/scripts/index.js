@@ -17,12 +17,18 @@ $(() => {
 const blogEvents = require('../scripts/auth/events.js')
 
 $(() => {
+  $('#log-out').hide()
+  $('#blog-history').hide()
+  $('#submit-blog').hide()
+  $('#new-blog-title').hide()
+  $('#new-blog-content').hide()
+  $('#change-password').hide()
   $('#sign-up').on('submit', blogEvents.onSignUp)
   $('#sign-in').on('submit', blogEvents.onSignIn)
   $('#change-password').on('submit', blogEvents.onChangePassword)
   $('#log-out').on('click', blogEvents.onLogOut)
   $('#submit-blog').on('click', blogEvents.onSubmitBlog)
-  $('#blog-history').click(blogEvents.onBlogHistory)
+  $('#blog-history').on('click', blogEvents.onBlogHistory)
 })
 
 $(document).on('click', '.btnDeleteBlog', blogEvents.onBlogDelete)

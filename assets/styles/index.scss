@@ -2,12 +2,16 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 body{
-  background-color: #0b26ae;
-  color: #ae930b;
+  background-color: #2980b9;
+  color: #f1c40f;
 }
 
 legend {
   color: #ae930b;
+}
+
+.blog-header {
+  text-align: center;
 }
 
 .HeaderPicture {
@@ -15,6 +19,14 @@ legend {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 150px;
-  width: 600px;
+  height: 253px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 45px;
+  width: 595px;
+}
+
+#error-message {
+  font-size: 20px;
+  text-align: center;
 }

@@ -36,8 +36,8 @@ const onLogOut = function (event) {
 
 const onSubmitBlog = function (event) {
   event.preventDefault()
-  const title = $('#00').val()
-  const content = $('#11').val()
+  const title = $('#new-blog-title').val()
+  const content = $('#new-blog-content').val()
   api.adminBlog(title, content) // update api
     .then(ui.createSuccess) // update ui with
     .catch(ui.loopBlogsFailure)
